@@ -1,10 +1,13 @@
+import {getTodayGames} from '../../api/api.js'
 Page({
   data: {
     currentTab: 0
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-
+    getTodayGames('20181217').then( data => {
+      console.log(data)
+    } )
   },
   //滑动切换
   swiperTab: function (e) {

@@ -1,0 +1,25 @@
+<!--components/GameList.wxml-->
+<view class='game-box'>
+  <view class='game-item'>
+    <view class='game-left' >
+      <image class='team-avatar'  mode='widthFix'      src='/assets/img/atl.png'></image>
+      <text class='team-text'>湖人队</text>
+    </view>
+    <view class='game-center'>
+      <view class='game-title'>
+        <text>Q4</text>
+        <text>2:03</text>
+      </view>
+      <view class="score-wrapper">
+        <text>90</text>
+        <view></view>
+        <text>80</text>
+      </view>
+    </view>
+    <view class='game-right'>
+             <image mode='widthFix' class='team-avatar' src='/assets/img/bos.png'></image>
+      <text class='team-text'>勇士队</text>
+    </view>
+  </view>  
+</view>
+

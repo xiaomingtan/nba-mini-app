@@ -7,7 +7,8 @@ export default {
         team: 'Hawks',
         color: '#E03A3E',
         conf: 'eastern',
-        logo: 'atl.png'
+        logo: 'atl.png',
+        cn: '老鹰队'
     },
     bkn: {
         id: 1610612751,
@@ -15,7 +16,8 @@ export default {
         team: 'Nets',
         color: '#000',
         conf: 'eastern',
-        logo: 'bkn.png'
+        logo: 'bkn.png',
+        cn: '篮网队'
     },
     bos: {
         id: 1610612738,
@@ -23,7 +25,8 @@ export default {
         team: 'Celtics',
         color: '#008348',
         conf: 'eastern',
-        logo: 'bos.png'
+        logo: 'bos.png',
+        cn: '凯尔特人队'
     },
     cha: {
         id: 1610612766,
@@ -31,7 +34,8 @@ export default {
         team: 'Hornets',
         color: '#008CA8',
         conf: 'eastern',
-        logo: 'cha.png'
+        logo: 'cha.png',
+        cn: '黄蜂队'
     },
     chi: {
         id: 1610612741,
@@ -39,7 +43,8 @@ export default {
         team: 'Bulls',
         color: '#CE1141',
         conf: 'eastern',
-        logo: 'chi.png'
+        logo: 'chi.png',
+        cn: '公牛队'
     },
     cle: {
         id: 1610612739,
@@ -47,7 +52,8 @@ export default {
         team: 'Cavaliers',
         color: '#860038',
         conf: 'eastern',
-        logo: 'cle.png'
+        logo: 'cle.png',
+        cn: '骑士队'
     },
     dal: {
         id: 1610612742,
@@ -55,7 +61,8 @@ export default {
         team: 'Mavericks',
         color: '#007DC5',
         conf: 'western',
-        logo: 'dal.png'
+        logo: 'dal.png',
+        cn: '独行侠队'
     },
     den: {
         id: 1610612743,
@@ -63,7 +70,8 @@ export default {
         team: 'Nuggets',
         color: '#FFB20F',
         conf: 'western',
-        logo: 'den.png'
+        logo: 'den.png',
+        cn: '掘金队'
     },
     det: {
         id: 1610612765,
@@ -71,7 +79,8 @@ export default {
         team: 'Pistons',
         color: '#006BB6',
         conf: 'eastern',
-        logo: 'det.png'
+        logo: 'det.png',
+        cn: '活塞队'
     },
     gsw: {
         id: 1610612744,
@@ -79,7 +88,8 @@ export default {
         team: 'Warriors',
         color: '#FDB927',
         conf: 'western',
-        logo: 'gsw.png'
+        logo: 'gsw.png',
+        cn: '勇士队'
     },
     hou: {
         id: 1610612745,
@@ -88,7 +98,8 @@ export default {
         color: '#CE1141',
         conf: 'western',
         logo: 'hou.png',
-        logo2: 'hou2.png'
+        logo2: 'hou2.png',
+        cn: '火箭队'
     },
     ind: {
         id: 1610612754,
@@ -96,7 +107,8 @@ export default {
         team: 'Pacers',
         color: '#FFC633',
         conf: 'eastern',
-        logo: 'ind.png'
+        logo: 'ind.png',
+        cn: '步行者队'
     },
     lac: {
         id: 1610612746,
@@ -104,7 +116,8 @@ export default {
         team: 'Clippers',
         color: '#222',
         conf: 'western',
-        logo: 'lac.png'
+        logo: 'lac.png',
+        cn: '快船队'
     },
     lal: {
         id: 1610612747,
@@ -112,7 +125,8 @@ export default {
         team: 'Lakers',
         color: '#552582',
         conf: 'western',
-        logo: 'lal.png'
+        logo: 'lal.png',
+        cn: '湖人队'
     },
     mem: {
         id: 1610612763,
@@ -120,7 +134,8 @@ export default {
         team: 'Grizzlies',
         color: '#6189B9',
         conf: 'western',
-        logo: 'mem.png'
+        logo: 'mem.png',
+        cn: '灰熊队'
     },
     mia: {
         id: 1610612748,
@@ -128,7 +143,8 @@ export default {
         team: 'Heat',
         color: '#98002E',
         conf: 'eastern',
-        logo: 'mia.png'
+        logo: 'mia.png',
+        cn: '热火队'
     },
     mil: {
         id: 1610612749,
@@ -136,7 +152,8 @@ export default {
         team: 'Bucks',
         color: '#00471B',
         conf: 'eastern',
-        logo: 'mil.png'
+        logo: 'mil.png',
+        cn: '雄鹿队'
     },
     min: {
         id: 1610612750,
@@ -144,7 +161,8 @@ export default {
         team: 'Timberwolves',
         color: '#005083',
         conf: 'western',
-        logo: 'min.png'
+        logo: 'min.png',
+        cn: '森林狼队'
     },
     nop: {
         id: 1610612740,
@@ -152,7 +170,8 @@ export default {
         team: 'Pelicans',
         color: '#002B5C',
         conf: 'western',
-        logo: 'nop.png'
+        logo: 'nop.png',
+        cn: '鹈鹕队'
     },
     nyk: {
         id: 1610612752,
@@ -160,7 +179,8 @@ export default {
         team: 'Knicks',
         color: '#F58426',
         conf: 'eastern',
-        logo: 'nyk.png'
+        logo: 'nyk.png',
+        cn: '尼克斯队'
     },
     okc: {
         id: 1610612760,
@@ -168,7 +188,8 @@ export default {
         team: 'Thunder',
         color: '#F05133',
         conf: 'western',
-        logo: 'okc.png'
+        logo: 'okc.png',
+        cn: '雷霆队'
     },
     orl: {
         id: 1610612753,
@@ -176,7 +197,8 @@ export default {
         team: 'Magic',
         color: '#007DC5',
         conf: 'eastern',
-        logo: 'orl.png'
+        logo: 'orl.png',
+        cn: '魔术队'
     },
     phi: {
         id: 1610612755,
@@ -184,7 +206,8 @@ export default {
         team: '76ers',
         color: '#006BB6',
         conf: 'eastern',
-        logo: 'phi.png'
+        logo: 'phi.png',
+        cn: '76人队'
     },
     phx: {
         id: 1610612756,
@@ -192,7 +215,8 @@ export default {
         team: 'Suns',
         color: '#E56020',
         conf: 'western',
-        logo: 'phx.png'
+        logo: 'phx.png',
+        cn: '太阳队'
     },
     por: {
         id: 1610612757,
@@ -200,7 +224,8 @@ export default {
         team: 'Trail Blazers',
         color: '#000',
         conf: 'western',
-        logo: 'por.png'
+        logo: 'por.png',
+        cn: '开拓者队'
     },
     sac: {
         id: 1610612758,
@@ -208,7 +233,8 @@ export default {
         team: 'Kings',
         color: '#724C9F',
         conf: 'western',
-        logo: 'sac.png'
+        logo: 'sac.png',
+        cn: '国王队'
     },
     sas: {
         id: 1610612759,
@@ -216,7 +242,8 @@ export default {
         team: 'Spurs',
         color: '#B6BFBF',
         conf: 'western',
-        logo: 'sas.png'
+        logo: 'sas.png',
+        cn: '马刺队'
     },
     tor: {
         id: 1610612761,
@@ -224,7 +251,8 @@ export default {
         team: 'Raptors',
         color: '#CE1141',
         conf: 'eastern',
-        logo: 'tor.png'
+        logo: 'tor.png',
+        cn: '猛龙队'
     },
     uta: {
         id: 1610612762,
@@ -232,7 +260,8 @@ export default {
         team: 'Jazz',
         color: '#00471B',
         conf: 'western',
-        logo: 'uta.png'
+        logo: 'uta.png',
+        cn: '爵士队'
     },
     was: {
         id: 1610612764,
@@ -240,6 +269,7 @@ export default {
         team: 'Wizards',
         color: '#F5002F',
         conf: 'eastern',
-        logo: 'was.png'
+        logo: 'was.png',
+        cn: '奇才队'
     }
 }

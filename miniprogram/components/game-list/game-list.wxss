@@ -1,0 +1,31 @@
+/* components/GameList.wxss */
+.game-item {
+  background-color: wheat;
+  display: flex;
+  align-content: center;
+  color: #fff;
+}
+
+.game-left, .game-right {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.team-avatar {
+  width: 120rpx;
+  display: block;
+}
+
+.game-center {
+  flex: 1;
+}
+
+.team-text {
+  font-size: 14px;
+  display: block;
+}

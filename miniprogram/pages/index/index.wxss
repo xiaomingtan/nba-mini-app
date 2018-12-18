@@ -1,6 +1,7 @@
 /**index.wxss**/
 
-.swiper-tab{
+/**swiper**/
+.swiper-tab {
     background: #3471AE;
     width: 100%;
     border-bottom: 2rpx solid #ccc;
@@ -11,17 +12,24 @@
     flex-flow: row;
     justify-content: space-between;
 }
-.swiper-tab-item{
+.swiper-tab .swiper-tab-item {
     width: 30%; 
     color:#fff;
     font-size: 13px;
     opacity: 0.6;
 }
-.active{
+
+.swiper-tab .active{
     color:#fff;
     opacity: 1;
     border-bottom: 4rpx solid #fff;
 }
+
 swiper{
   text-align: center;
+}
+
+/**game**/
+.game-wrapper {
+  padding: 20rpx;
 }
