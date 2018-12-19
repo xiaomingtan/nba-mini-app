@@ -12,24 +12,31 @@
     flex-flow: row;
     justify-content: space-between;
 }
+
 .swiper-tab .swiper-tab-item {
-    width: 30%; 
-    color:#fff;
+    width: 30%;
+    color: #fff;
     font-size: 13px;
     opacity: 0.6;
 }
 
-.swiper-tab .active{
-    color:#fff;
+.swiper-tab .active {
+    color: #fff;
     opacity: 1;
     border-bottom: 4rpx solid #fff;
 }
 
-swiper{
-  text-align: center;
+swiper {
+    text-align: center;
 }
 
 /**game**/
 .game-wrapper {
-  padding: 20rpx;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
 }

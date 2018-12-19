@@ -1,25 +1,38 @@
 <!--components/GameList.wxml-->
 <view class='game-box'>
-  <view class='game-item'>
-    <view class='game-left' >
-      <image class='team-avatar'  mode='widthFix'      src='/assets/img/atl.png'></image>
-      <text class='team-text'>湖人队</text>
+    <view wx:for="{{data}}" class='game-item' wx:key="{{index}}" style="background-color: {{item.home.color}}">
+        <view  class='game-left'>
+            <view class="img-wrapper">
+                <image class='team-avatar' mode='widthFix' src='/assets/img/{{item.visitor.team_logo}}'></image>
+            </view>
+            <view>
+                <text class='team-text'>{{item.visitor.cn}}</text>
+            </view>
+        </view>
+        <view class='game-center'>
+            <view class='game-title'>
+                <text class="quarter" wx:if="{{item.period_time.period_status !== 'Final'}}">Q{{item.period_time.period_value}}</text>
+                <text class="time" wx:if="{{item.period_time.period_status !== 'Final'}}">{{item.period_time.game_clock}}</text>
+                <text wx:if="{{item.period_time.period_status === 'Final'}}">已结束</text>
+            </view>
+            <view class="score-wrapper">
+                <view>
+                    <text class="score">{{item.visitor.score}}</text>
+                </view>
+                <view class="division"></view>
+                <view>
+                    <text class="score">{{item.home.score}}</text>
+                </view>
+            </view>
+        </view>
+        <view class='game-right'>
+            <view class="img-wrapper">
+                <image class='team-avatar' mode='widthFix' src="/assets/img/{{item.home.team_logo}}"></image>
+            </view>
+            <view>
+                <text class='team-text'>{{item.home.cn}}</text>
+            </view>
+        </view>
     </view>
-    <view class='game-center'>
-      <view class='game-title'>
-        <text>Q4</text>
-        <text>2:03</text>
-      </view>
-      <view class="score-wrapper">
-        <text>90</text>
-        <view></view>
-        <text>80</text>
-      </view>
-    </view>
-    <view class='game-right'>
-             <image mode='widthFix' class='team-avatar' src='/assets/img/bos.png'></image>
-      <text class='team-text'>勇士队</text>
-    </view>
-  </view>  
 </view>
 
