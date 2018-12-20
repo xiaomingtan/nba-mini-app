@@ -40,3 +40,15 @@ swiper {
     height: 0;
     color: transparent;
 }
+
+/*date-picker*/
+.date-picker-wrapper {
+    background-color: #4d98e4;
+    color: #fff;
+    padding: 40rpx 20rpx;
+}
+
+.game-amount {
+    font-size: 12px;
+    margin-top: 4rpx;
+}

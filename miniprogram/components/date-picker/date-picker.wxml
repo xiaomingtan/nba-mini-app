@@ -1,0 +1,8 @@
+<view class="section">
+    <picker mode="date" value="{{date}}" start="2018-10-28" end="2019-04-01" bindchange="bindDateChange">
+        <view class="picker">
+            <view>{{currentDate}}</view>
+            <view class="arrow-down"></view>
+        </view>
+    </picker>
+</view>

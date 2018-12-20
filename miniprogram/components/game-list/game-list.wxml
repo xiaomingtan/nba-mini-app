@@ -11,17 +11,18 @@
         </view>
         <view class='game-center'>
             <view class='game-title'>
-                <text class="quarter" wx:if="{{item.period_time.period_status !== 'Final'}}">Q{{item.period_time.period_value}}</text>
-                <text class="time" wx:if="{{item.period_time.period_status !== 'Final'}}">{{item.period_time.game_clock}}</text>
-                <text wx:if="{{item.period_time.period_status === 'Final'}}">已结束</text>
+                <text class="quarter" wx:if="{{item.game_status === 'STARTING'}}">Q{{item.period_time.period_value}}</text>
+                <text class="time" wx:if="{{item.game_status === 'STARTING'}}">{{item.period_time.game_clock}}</text>
+                <text wx:if="{{item.game_status === 'NOT_STARTED'}}">{{item.period_time.period_status}}</text>
+                <text wx:if="{{item.game_status === 'FINAL'}}">已结束</text>
             </view>
             <view class="score-wrapper">
                 <view>
-                    <text class="score">{{item.visitor.score}}</text>
+                    <text class="score">{{item.game_status === 'NOT_STARTED' ? '0' : item.visitor.score}}</text>
                 </view>
                 <view class="division"></view>
                 <view>
-                    <text class="score">{{item.home.score}}</text>
+                    <text class="score">{{item.game_status === 'NOT_STARTED' ? '0' : item.home.score}}</text>
                 </view>
             </view>
         </view>
