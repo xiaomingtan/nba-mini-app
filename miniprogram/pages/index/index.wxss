@@ -30,6 +30,10 @@ swiper {
     text-align: center;
 }
 
+.swiper-top {
+    height: 180rpx;
+}
+
 /**game**/
 .game-wrapper {
     height: 100%;
@@ -43,9 +47,14 @@ swiper {
 
 /*date-picker*/
 .date-picker-wrapper {
+    display: flex;
+    justify-content:  center;
+    flex-direction: column;
     background-color: #4d98e4;
     color: #fff;
-    padding: 40rpx 20rpx;
+    padding: 0 20rpx;
+    height: 100%;
+    width: 100%;
 }
 
 .game-amount {

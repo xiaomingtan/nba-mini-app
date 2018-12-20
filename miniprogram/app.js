@@ -9,8 +9,12 @@ App({
             })
         }
 
-        this.globalData = {}
+        this.globalData = {
+            season: '2018-19'
+        }
 
+
+        // format date to yyyy-mm-dd hh:mm:ss
         Date.prototype.format = function (fmt) { //author: meizz
             var o = {
                 "M+": this.getMonth() + 1, //月份
@@ -27,15 +31,18 @@ App({
             return fmt;
         }
 
+        /**
+         *
+         * @param i: 时区值数字
+         * @example 北京为东八区则输进8,西5输入-5
+         * @returns {Date}
+         */
         Date.prototype.getLocalTime = function (i) {
-            //参数i为时区值数字，比如北京为东八区则输进8,西5输入-5
             if (typeof i !== 'number') return;
-            //得到1970年一月一日到现在的秒数
-            var len = this.getTime();
-            //本地时间与GMT时间的时间偏移差
-            var offset = this.getTimezoneOffset() * 60000;
-            var utcTime = len + offset;
-            return new Date(utcTime + 3600000 * i);
+            let len = this.getTime();  // 得到1970年一月一日到现在的秒数
+            let offset = this.getTimezoneOffset() * 60 * 1000; // 本地时间与GMT时间的时间偏移差(ms)
+            let utcTime = len + offset;
+            return new Date(utcTime + 60 * 60 * 1000 * i);
         }
     }
 })

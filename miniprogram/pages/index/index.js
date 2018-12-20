@@ -7,6 +7,11 @@ const GAME_STATUS_FINAL = '3' // 比赛结束
 
 const WEST_8_AREA = -8 // 西八区
 
+const SWIPER_TOP_HEIGHT = 180
+const SWIPER_TAB_HEIGHT = 90
+
+const GET_GAMES_INTERVAL = 30000
+
 Page({
     data: {
         currentTab: 0,
@@ -18,26 +23,24 @@ Page({
         // 页面初始化 options为页面跳转所带来的参数
         this.timer = setTimeout(() => {
             this.fetchGames()
-        }, 30000)
+        }, GET_GAMES_INTERVAL)
         this.fetchGames()
         let systemInfo = wx.getSystemInfoSync() // 获取设备信息
-        let swiperItemHeight = systemInfo.windowHeight * systemInfo.pixelRatio - 270
+        let swiperItemHeight = systemInfo.windowHeight * systemInfo.pixelRatio - SWIPER_TOP_HEIGHT - SWIPER_TAB_HEIGHT
         this.setData({'swiperItemHeight': swiperItemHeight})
     },
     //滑动切换
     swiperTab: function (e) {
-        var that = this;
-        that.setData({
+        this.setData({
             currentTab: e.detail.current
         });
     },
     //点击切换
     clickTab: function (e) {
-        var that = this;
         if (this.data.currentTab === e.target.dataset.current) {
             return false;
         } else {
-            that.setData({
+            this.setData({
                 currentTab: e.target.dataset.current
             })
         }

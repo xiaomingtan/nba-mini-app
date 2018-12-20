@@ -1,7 +1,9 @@
 <view>
-    <view class="date-picker-wrapper">
-        <date-picker bind:get-date="getCurrentDate" currentDate="{{currentDate}}"></date-picker>
-        <text class="game-amount">{{games.length}}场比赛</text>
+    <view class="swiper-top">
+        <view class="date-picker-wrapper">
+            <date-picker bind:get-date="getCurrentDate" currentDate="{{currentDate}}"></date-picker>
+            <text class="game-amount">{{games.length}}场比赛</text>
+        </view>
     </view>
     <view class="swiper-tab">
         <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">比赛</view>
