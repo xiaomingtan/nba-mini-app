@@ -21,7 +21,7 @@ Page({
         }, 30000)
         this.fetchGames()
         let systemInfo = wx.getSystemInfoSync() // 获取设备信息
-        let swiperItemHeight = systemInfo.windowHeight * systemInfo.pixelRatio - 90
+        let swiperItemHeight = systemInfo.windowHeight * systemInfo.pixelRatio - 270
         this.setData({'swiperItemHeight': swiperItemHeight})
     },
     //滑动切换
