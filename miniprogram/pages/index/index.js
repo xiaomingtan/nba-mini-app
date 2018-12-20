@@ -17,7 +17,13 @@ Page({
         currentTab: 0,
         swiperItemHeight: 0,
         games: [],
-        currentDate: new Date().format('yyyy-MM-dd')
+        currentDate: new Date().format('yyyy-MM-dd'),
+        areaRange: [
+          {id: '0', name: '全部'},
+          { id: 'western', name: '西部' },
+          { id: 'eastern', name: '东部' }
+          ],
+        areaIndex: 0
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -26,7 +32,7 @@ Page({
         }, GET_GAMES_INTERVAL)
         this.fetchGames()
         let systemInfo = wx.getSystemInfoSync() // 获取设备信息
-        let swiperItemHeight = systemInfo.windowHeight * systemInfo.pixelRatio - SWIPER_TOP_HEIGHT - SWIPER_TAB_HEIGHT
+      let swiperItemHeight = systemInfo.windowHeight - (SWIPER_TOP_HEIGHT * systemInfo.screenWidth / 750) - (SWIPER_TAB_HEIGHT * systemInfo.screenWidth / 750)
         this.setData({'swiperItemHeight': swiperItemHeight})
     },
     //滑动切换
@@ -92,6 +98,12 @@ Page({
             currentDate: e.detail
         })
         this.fetchGames()
-    }
+    },
+  bindAreaChange: function(e) {
+    console.log(e)
+    this.setData({
+      areaIndex: parseInt(e.detail.value)
+    })
+  }
 
 })

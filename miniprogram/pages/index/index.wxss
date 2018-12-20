@@ -61,3 +61,14 @@ swiper {
     font-size: 12px;
     margin-top: 4rpx;
 }
+
+.area-wrapper {
+    display: flex;
+    justify-content:  center;
+    flex-direction: column;
+    background-color: #4d98e4;
+    color: #fff;
+    padding: 0 20rpx;
+    height: 100%;
+    width: 100%;
+}
