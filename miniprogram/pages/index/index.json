@@ -2,5 +2,6 @@
   "usingComponents": {
     "game-list": "/components/game-list/game-list",
     "date-picker": "/components/date-picker/date-picker"
-  }
+  },
+  "enablePullDownRefresh": true
 }

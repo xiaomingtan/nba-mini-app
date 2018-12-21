@@ -19,10 +19,10 @@ Page({
         games: [],
         currentDate: new Date().format('yyyy-MM-dd'),
         areaRange: [
-          {id: '0', name: '全部'},
-          { id: 'western', name: '西部' },
-          { id: 'eastern', name: '东部' }
-          ],
+            {id: '0', name: '全部'},
+            {id: 'western', name: '西部'},
+            {id: 'eastern', name: '东部'}
+        ],
         areaIndex: 0
     },
     onLoad: function (options) {
@@ -32,8 +32,11 @@ Page({
         }, GET_GAMES_INTERVAL)
         this.fetchGames()
         let systemInfo = wx.getSystemInfoSync() // 获取设备信息
-      let swiperItemHeight = systemInfo.windowHeight - (SWIPER_TOP_HEIGHT * systemInfo.screenWidth / 750) - (SWIPER_TAB_HEIGHT * systemInfo.screenWidth / 750)
+        let swiperItemHeight = systemInfo.windowHeight - (SWIPER_TOP_HEIGHT * systemInfo.screenWidth / 750) - (SWIPER_TAB_HEIGHT * systemInfo.screenWidth / 750)
         this.setData({'swiperItemHeight': swiperItemHeight})
+    },
+    onPullDownRefresh: function(e) {
+        this.fetchGames(true)
     },
     //滑动切换
     swiperTab: function (e) {
@@ -51,7 +54,7 @@ Page({
             })
         }
     },
-    fetchGames: function () {
+    fetchGames: function (refresh) {
         let date = new Date(this.data.currentDate).getLocalTime(WEST_8_AREA).format('yyyy-MM-dd').split('-').join('')
         let hasNotStartedGame = false
         getTodayGames(date).then(data => {
@@ -64,12 +67,12 @@ Page({
                 tmp.period_time = item.period_time
                 tmp.game_status = item.period_time.game_status === GAME_STATUS_NOT_STARTED ?
                     'NOT_STARTED' : item.period_time.game_status === GAME_STATUS_STARTING ?
-                    'STARTING': item.period_time.game_status === GAME_STATUS_FINAL ?
-                    'FINAL' : ''
+                        'STARTING' : item.period_time.game_status === GAME_STATUS_FINAL ?
+                            'FINAL' : ''
 
-                if ( tmp.game_status === 'NOT_STARTED') {
+                if (tmp.game_status === 'NOT_STARTED') {
                     tmp.period_time.period_status = tmp.period_time.period_status.replace('pm', '').replace('ET', '').trim()
-                    let arr =  tmp.period_time.period_status.split(':')
+                    let arr = tmp.period_time.period_status.split(':')
                     tmp.period_time.period_status = parseInt(arr[0]) + 1 + ':' + arr[1]
                     hasNotStartedGame = true
                 }
@@ -89,7 +92,7 @@ Page({
             })
 
             if (!hasNotStartedGame) clearInterval(this.timer)
-
+            if (refresh) wx.stopPullDownRefresh();
             this.setData({'games': newData})
         })
     },
@@ -99,11 +102,11 @@ Page({
         })
         this.fetchGames()
     },
-  bindAreaChange: function(e) {
-    console.log(e)
-    this.setData({
-      areaIndex: parseInt(e.detail.value)
-    })
-  }
+    bindAreaChange: function (e) {
+        console.log(e)
+        this.setData({
+            areaIndex: parseInt(e.detail.value)
+        })
+    }
 
 })
