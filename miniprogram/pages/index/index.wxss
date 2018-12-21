@@ -62,9 +62,16 @@ swiper {
     margin-top: 4rpx;
 }
 
+
+/* data-list */
+.data-wrapper {
+    height: 100%;
+}
+
 .area-wrapper {
     display: flex;
     justify-content:  center;
+    align-items: center;
     flex-direction: column;
     background-color: #4d98e4;
     color: #fff;

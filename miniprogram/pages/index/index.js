@@ -1,4 +1,4 @@
-import {getTodayGames} from '../../api/api.js'
+import {getTodayGames, getLeagueStanding} from '../../api/api.js'
 import teamMap from '../../config/team-map'
 
 const GAME_STATUS_NOT_STARTED = '1' // 比赛未开始
@@ -12,18 +12,24 @@ const SWIPER_TAB_HEIGHT = 90
 
 const GET_GAMES_INTERVAL = 30000
 
+const GAME_TAB_INDEX = 0
+const PLAYER_TAB_INDEX = 1
+const DATA_TAB_INDEX = 2
+
 Page({
     data: {
-        currentTab: 0,
+        currentTab: DATA_TAB_INDEX,
         swiperItemHeight: 0,
         games: [],
         currentDate: new Date().format('yyyy-MM-dd'),
-        areaRange: [
-            {id: '0', name: '全部'},
-            {id: 'western', name: '西部'},
-            {id: 'eastern', name: '东部'}
+
+        // 数据Tab -- data
+        teamStandings: null,
+        teamAside: ['联盟排行', '西部排行', '东部排行'],
+        dataTypeRange: [
+            {id: '0', name: '球队榜'},
         ],
-        areaIndex: 0
+        dataTypeIndex: 0
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -34,6 +40,7 @@ Page({
         let systemInfo = wx.getSystemInfoSync() // 获取设备信息
         let swiperItemHeight = systemInfo.windowHeight - (SWIPER_TOP_HEIGHT * systemInfo.screenWidth / 750) - (SWIPER_TAB_HEIGHT * systemInfo.screenWidth / 750)
         this.setData({'swiperItemHeight': swiperItemHeight})
+        this.fetchTeamStandings()
     },
     onPullDownRefresh: function(e) {
         this.fetchGames(true)
@@ -46,13 +53,18 @@ Page({
     },
     //点击切换
     clickTab: function (e) {
-        if (this.data.currentTab === e.target.dataset.current) {
+        if (this.data.currentTab == e.target.dataset.current) {
             return false;
         } else {
             this.setData({
                 currentTab: e.target.dataset.current
             })
         }
+
+        if (this.data.currentTab == DATA_TAB_INDEX) {
+            this.fetchTeamStandings()
+        }
+
     },
     fetchGames: function (refresh) {
         let date = new Date(this.data.currentDate).getLocalTime(WEST_8_AREA).format('yyyy-MM-dd').split('-').join('')
@@ -101,6 +113,39 @@ Page({
             currentDate: e.detail
         })
         this.fetchGames()
+    },
+    fetchTeamStandings() {
+        let year = new Date().getLocalTime(WEST_8_AREA).getFullYear()
+        getLeagueStanding(year).then( data => {
+            console.log(this.data.teamStandings)
+            let arr = data.sports_content.standings.team
+            let tmp = {}
+            tmp.leagueRank = []
+            tmp.easternRank = []
+            tmp.westernRank = []
+            arr.forEach(item => {
+                let obj = {
+                    logo: teamMap[item.abbreviation.toLowerCase()].logo,
+                    name: teamMap[item.abbreviation.toLowerCase()].cn,
+                    team_id: item.id,
+                    wins: item.team_stats.wins,
+                    losses: item.team_stats.losses,
+                    pct: (parseFloat(item.team_stats.pct) * 100).toFixed(1),
+                    recent_streak: item.team_stats.streak.indexOf('W') != -1 ?  item.team_stats.streak_num + '连胜' :  item.team_stats.streak_num.replace('-', '') + '连败',
+                }
+
+                tmp.leagueRank.push(obj)
+
+                if (teamMap[item.abbreviation.toLowerCase()].conf === 'eastern') {
+                    tmp.easternRank.push(obj)
+                } else {
+                    tmp.westernRank.push(obj)
+                }
+            })
+            this.setData({
+                teamStandings: tmp
+            })
+        } )
     },
     bindAreaChange: function (e) {
         console.log(e)

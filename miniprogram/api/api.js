@@ -20,3 +20,24 @@ export function getTodayGames(date) {
     })
   })
 }
+
+export function getLeagueStanding(year) {
+    const url = address.leagueStanding(year)
+    return new Promise((resolve, reject) => {
+        wx.request({
+            method: 'GET',
+            url: url,
+            dataType: 'json',
+            success: function(response) {
+                if (response.statusCode === 200 || response.statusCode === 204) {
+                    resolve(response.data)
+                } else {
+                    resolve(response.errMsg)
+                }
+            },
+            fail: function(e) {
+                resolve(e)
+            }
+        })
+    })
+}

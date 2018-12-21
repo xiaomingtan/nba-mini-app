@@ -1,0 +1,69 @@
+<view class="data-list">
+    <view class="data-list-aside">
+        <scroll-view>
+            <view wx:for="{{aside}}" class="aside-text {{currentAsideIndex == index ? 'active' : ''}}">{{item}}</view>
+        </scroll-view>
+    </view>
+    <scroll-view v-if="{{standings}}" scroll-y="true"  class="data-list-main">
+        <view class="group">
+            <view class="group-title">
+                <view style="flex: 1;text-align: left;">总排行榜</view>
+                <view style="width: 40px;">胜-负</view>
+                <view style="width: 40px;">胜率</view>
+                <view style="width: 40px;">近况</view>
+            </view>
+            <view class="group-list">
+                <view class="list" wx:for="{{standings.leagueRank}}">
+                    <view style="flex: 1;text-align: left;display: flex;align-items: center;">
+                        <text style="color: red;margin-right: 4px">{{index + 1}}</text>
+                        <image class='team-avatar' style="width: 20px;margin-right: 4px;" mode='widthFix' src='/assets/img/{{item.logo}}'></image>
+                        <text>{{item.name}}</text>
+                    </view>
+                    <view style="width: 40px;">{{item.wins}}-{{item.losses}}</view>
+                    <view style="width: 40px;">{{item.pct}}</view>
+                    <view style="width: 40px;">{{item.recent_streak}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="group">
+            <view class="group-title">
+                <view style="flex: 1;text-align: left;">西部排行榜</view>
+                <view style="width: 40px;">胜-负</view>
+                <view style="width: 40px;">胜率</view>
+                <view style="width: 40px;">近况</view>
+            </view>
+            <view class="group-list">
+                <view class="list" wx:for="{{standings.westernRank}}">
+                    <view style="flex: 1;text-align: left;display: flex;align-items: center;">
+                        <text style="color: red;margin-right: 4px">{{index + 1}}</text>
+                        <image class='team-avatar' style="width: 20px;margin-right: 4px;" mode='widthFix' src='/assets/img/{{item.logo}}'></image>
+                        <text>{{item.name}}</text>
+                    </view>
+                    <view style="width: 40px;">{{item.wins}}-{{item.losses}}</view>
+                    <view style="width: 40px;">{{item.pct}}</view>
+                    <view style="width: 40px;">{{item.recent_streak}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="group">
+            <view class="group-title">
+                <view style="flex: 1;text-align: left;">东部排行榜</view>
+                <view style="width: 40px;">胜-负</view>
+                <view style="width: 40px;">胜率</view>
+                <view style="width: 40px;">近况</view>
+            </view>
+            <view class="group-list">
+                <view class="list" wx:for="{{standings.easternRank}}">
+                    <view style="flex: 1;text-align: left;display: flex;align-items: center;">
+                        <text style="color: red;margin-right: 4px">{{index + 1}}</text>
+                        <image class='team-avatar' style="width: 20px;margin-right: 4px;" mode='widthFix' src='/assets/img/{{item.logo}}'></image>
+                        <text>{{item.name}}</text>
+                    </view>
+                    <view style="width: 40px;">{{item.wins}}-{{item.losses}}</view>
+                    <view style="width: 40px;">{{item.pct}}</view>
+                    <view style="width: 40px;">{{item.recent_streak}}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
