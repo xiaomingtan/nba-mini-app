@@ -6,7 +6,7 @@
 
 .data-list-aside {
     width: 150rpx;
-    font-size: 20rpx;
+    font-size: 24rpx;
     height: 100%;
     background-color: #f1f1f1;
     color: #cccccc;
@@ -34,6 +34,7 @@
 
 .data-list-main {
     flex: 1;
+    height: 100%;
 }
 
 .group-title {

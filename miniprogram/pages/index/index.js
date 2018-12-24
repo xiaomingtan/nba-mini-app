@@ -7,7 +7,7 @@ const GAME_STATUS_FINAL = '3' // 比赛结束
 
 const WEST_8_AREA = -8 // 西八区
 
-const SWIPER_TOP_HEIGHT = 180
+const SWIPER_TOP_HEIGHT = 140
 const SWIPER_TAB_HEIGHT = 90
 
 const GET_GAMES_INTERVAL = 30000
@@ -18,7 +18,7 @@ const DATA_TAB_INDEX = 2
 
 Page({
     data: {
-        currentTab: DATA_TAB_INDEX,
+      currentTab: DATA_TAB_INDEX,
         swiperItemHeight: 0,
         games: [],
         currentDate: new Date().format('yyyy-MM-dd'),

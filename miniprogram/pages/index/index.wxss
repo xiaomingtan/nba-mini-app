@@ -31,7 +31,7 @@ swiper {
 }
 
 .swiper-top {
-    height: 180rpx;
+    height: 140rpx;
 }
 
 /**game**/
@@ -75,7 +75,10 @@ swiper {
     flex-direction: column;
     background-color: #4d98e4;
     color: #fff;
-    padding: 0 20rpx;
     height: 100%;
     width: 100%;
+}
+
+.picker {
+  font-size: 24px;
 }
