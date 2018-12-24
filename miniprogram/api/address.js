@@ -37,8 +37,8 @@ const address = {
      * 所有球员列表
      * @returns {string}
      */
-    playerList: () => {
-        return `https://stats.nba.com/stats/commonallplayers?IsOnlyCurrentSeason=0&LeagueID=00&Season=${season}`
+    playerList: (season, IsOnlyCurrentSeason) => {
+        return `https://stats.nba.com/stats/commonallplayers?IsOnlyCurrentSeason=${IsOnlyCurrentSeason}&LeagueID=00&Season=${season}`
     },
 
     playerInfo: (id) => {

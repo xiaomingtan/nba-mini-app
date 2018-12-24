@@ -82,3 +82,26 @@ swiper {
 .picker {
   font-size: 24px;
 }
+
+/* player-list */
+.player-wrapper {
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #4d98e4;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.search-input {
+    background-color: #3471AE;
+    font-size: 16px;
+}
+
+.place-holder {
+    color: #fff;
+    font-size: 14px;
+    text-indent: 4px;
+}

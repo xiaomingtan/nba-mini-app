@@ -15,7 +15,7 @@ export function getTodayGames(date) {
         }
       },
       fail: function(e) {
-        resolve(e)
+          reject(e)
       }
     })
   })
@@ -36,7 +36,28 @@ export function getLeagueStanding(year) {
                 }
             },
             fail: function(e) {
-                resolve(e)
+                reject(e)
+            }
+        })
+    })
+}
+
+export function getPlayers(season, IsOnlyCurrentSeason) {
+    const url = address.playerList(season, IsOnlyCurrentSeason)
+    return new Promise((resolve, reject) => {
+        wx.request({
+            method: 'GET',
+            url: url,
+            dataType: 'json',
+            success: function(response) {
+                if (response.statusCode === 200 || response.statusCode === 204) {
+                    resolve(response.data)
+                } else {
+                    resolve(response.errMsg)
+                }
+            },
+            fail: function(e) {
+                reject(e)
             }
         })
     })

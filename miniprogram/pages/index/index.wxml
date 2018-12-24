@@ -4,8 +4,11 @@
             <date-picker  bind:get-date="getCurrentDate" currentDate="{{currentDate}}"></date-picker>
             <text class="game-amount">{{games.length}}场比赛</text>
         </view>
+        <view class='player-wrapper' wx:if="{{currentTab == 1}}">
+            <input placeholder="输入球员名字" placeholder-class="place-holder" class="search-input" confirm-type="search" auto-focus />
+        </view>
         <view class='area-wrapper' wx:if="{{currentTab == 2}}">
-          <picker  range-key='name' bindchange="bindAreaChange" range="{{dataTypeRange}}" value="{{dataTypeIndex}}">
+          <picker  range-key='name' range="{{dataTypeRange}}" value="{{dataTypeIndex}}">
               <view class="picker">
                 {{dataTypeRange[dataTypeIndex].name}}
               </view>

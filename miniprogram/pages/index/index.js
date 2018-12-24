@@ -1,4 +1,4 @@
-import {getTodayGames, getLeagueStanding} from '../../api/api.js'
+import {getTodayGames, getLeagueStanding, getPlayers} from '../../api/api.js'
 import teamMap from '../../config/team-map'
 
 const GAME_STATUS_NOT_STARTED = '1' // 比赛未开始
@@ -18,9 +18,11 @@ const DATA_TAB_INDEX = 2
 
 const STANDINGS_ITEM_HEIGHT = 36
 
+var app=getApp();
+
 Page({
     data: {
-      currentTab: DATA_TAB_INDEX,
+      currentTab: PLAYER_TAB_INDEX,
         swiperItemHeight: 0,
         games: [],
         currentDate: new Date().format('yyyy-MM-dd'),
@@ -32,7 +34,11 @@ Page({
             {id: '0', name: '球队榜'},
         ],
         dataTypeIndex: 0,
-        standingHeights: []
+        standingHeights: [],
+
+        // 球员Tab -- players
+        headerMap: {},
+        players: []
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -44,6 +50,7 @@ Page({
         let swiperItemHeight = systemInfo.windowHeight - (SWIPER_TOP_HEIGHT * systemInfo.screenWidth / 750) - (SWIPER_TAB_HEIGHT * systemInfo.screenWidth / 750)
         this.setData({'swiperItemHeight': swiperItemHeight})
         this.fetchTeamStandings()
+        this.fetchPlayers()
     },
     onPullDownRefresh: function(e) {
         this.fetchGames(true)
@@ -63,12 +70,8 @@ Page({
                 currentTab: e.target.dataset.current
             })
         }
-
-        if (this.data.currentTab == DATA_TAB_INDEX) {
-            this.fetchTeamStandings()
-        }
-
     },
+    // games
     fetchGames: function (refresh) {
         let date = new Date(this.data.currentDate).getLocalTime(WEST_8_AREA).format('yyyy-MM-dd').split('-').join('')
         let hasNotStartedGame = false
@@ -117,6 +120,7 @@ Page({
         })
         this.fetchGames()
     },
+    // data
     fetchTeamStandings() {
         let year = new Date().getLocalTime(WEST_8_AREA).getFullYear()
         getLeagueStanding(year).then( data => {
@@ -165,10 +169,19 @@ Page({
         })
         return height + STANDINGS_ITEM_HEIGHT
     },
-    bindAreaChange: function (e) {
-        this.setData({
-            areaIndex: parseInt(e.detail.value)
-        })
-    }
+    // players
+    fetchPlayers() { // 获取所有球员
+        getPlayers(app.globalData.season, 0).then( data => {
+            console.log(data.resultSets[0])
+            let headerMap = {}
+            data.resultSets[0].headers.forEach((item, index) => {
+                headerMap[item] = index
+            })
 
+            this.setData({
+                headerMap: headerMap,
+                players: data.resultSets[0].rowSet
+            })
+        } )
+    }
 })
