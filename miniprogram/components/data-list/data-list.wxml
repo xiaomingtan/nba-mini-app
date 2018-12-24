@@ -1,10 +1,14 @@
 <view class="data-list">
-     <scroll-view  class="data-list-aside">
-            <view wx:for="{{aside}}" class="aside-text {{currentAsideIndex == index ? 'active' : ''}}">{{item}}</view>
-     </scroll-view>
-    <scroll-view v-if="{{standings}}" scroll-y="true"  class="data-list-main">
-      <view class='content'>
-        <view class="group">
+    <scroll-view class="data-list-aside">
+        <view wx:for="{{aside}}" class="aside-text {{currentAsideIndex == index ? 'active' : ''}}" bindtap="onChangeStanding" data-index="{{index}}">{{item}}</view>
+    </scroll-view>
+    <scroll-view v-if="{{standings}}"
+                 scroll-y="true"
+                 bindscroll="onMainScroll"
+                 scroll-with-animation="true"
+                 scroll-into-view="{{standingsView}}"
+                 class="data-list-main">
+        <view class="group" id="standings0">
             <view class="group-title">
                 <view style="flex: 1;text-align: left;">总排行榜</view>
                 <view style="width: 40px;">胜-负</view>
@@ -24,7 +28,7 @@
                 </view>
             </view>
         </view>
-        <view class="group">
+        <view class="group" id="standings1">
             <view class="group-title">
                 <view style="flex: 1;text-align: left;">西部排行榜</view>
                 <view style="width: 40px;">胜-负</view>
@@ -44,7 +48,7 @@
                 </view>
             </view>
         </view>
-        <view class="group">
+        <view class="group" id="standings2">
             <view class="group-title">
                 <view style="flex: 1;text-align: left;">东部排行榜</view>
                 <view style="width: 40px;">胜-负</view>
@@ -64,6 +68,5 @@
                 </view>
             </view>
         </view>
-      </view>  
     </scroll-view>
 </view>
