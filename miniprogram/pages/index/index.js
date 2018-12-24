@@ -16,6 +16,8 @@ const GAME_TAB_INDEX = 0
 const PLAYER_TAB_INDEX = 1
 const DATA_TAB_INDEX = 2
 
+const STANDINGS_ITEM_HEIGHT = 36
+
 Page({
     data: {
         currentTab: DATA_TAB_INDEX,
@@ -29,7 +31,8 @@ Page({
         dataTypeRange: [
             {id: '0', name: '球队榜'},
         ],
-        dataTypeIndex: 0
+        dataTypeIndex: 0,
+        standingHeights: []
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -120,6 +123,8 @@ Page({
             console.log(this.data.teamStandings)
             let arr = data.sports_content.standings.team
             let tmp = {}
+            // 按胜率排序---从高到低
+            arr.sort((a, b) => (parseFloat(b.team_stats.pct.trim()) * 100).toFixed(1) - (parseFloat(a.team_stats.pct.trim()) * 100).toFixed(1))
             tmp.leagueRank = []
             tmp.easternRank = []
             tmp.westernRank = []
@@ -130,7 +135,7 @@ Page({
                     team_id: item.id,
                     wins: item.team_stats.wins,
                     losses: item.team_stats.losses,
-                    pct: (parseFloat(item.team_stats.pct) * 100).toFixed(1),
+                    pct: (parseFloat(item.team_stats.pct.trim()) * 100).toFixed(1),
                     recent_streak: item.team_stats.streak.indexOf('W') != -1 ?  item.team_stats.streak_num + '连胜' :  item.team_stats.streak_num.replace('-', '') + '连败',
                 }
 
@@ -142,13 +147,25 @@ Page({
                     tmp.westernRank.push(obj)
                 }
             })
+
+            let heights = [0]
+            heights.push(this._getHeight(tmp.leagueRank))
+            heights.push(heights[heights.length - 1] + this._getHeight(tmp.easternRank))
+            heights.push(heights[heights.length - 1] + this._getHeight(tmp.westernRank))
             this.setData({
-                teamStandings: tmp
+                teamStandings: tmp,
+                standingHeights: heights
             })
         } )
     },
+    _getHeight(arr) {
+        let height = 0;
+        arr.forEach(item => {
+            height += STANDINGS_ITEM_HEIGHT
+        })
+        return height + STANDINGS_ITEM_HEIGHT
+    },
     bindAreaChange: function (e) {
-        console.log(e)
         this.setData({
             areaIndex: parseInt(e.detail.value)
         })
