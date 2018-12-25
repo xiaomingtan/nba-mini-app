@@ -1,6 +1,13 @@
 <!--components/GameList.wxml-->
 <view class='game-box'>
-    <view wx:for="{{data}}" class='game-item' wx:key="{{index}}" style="background-color: {{item.home.color}}">
+    <view wx:for="{{data}}"
+          class='game-item'
+          wx:key="{{index}}"
+          style="background-color: {{item.home.color}}"
+          bindtap="onTab"
+          data-date="{{item.date}}"
+          data-id="{{item.id}}"
+    >
         <view  class='game-left'>
             <view class="img-wrapper">
                 <image class='team-avatar' mode='widthFix' src='/assets/img/{{item.visitor.team_logo}}'></image>

@@ -26,7 +26,7 @@
     <swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" style="height: {{swiperItemHeight}}px ;">
         <swiper-item>
           <scroll-view enable-back-to-top="true" class="game-wrapper" scroll-y="true">
-            <game-list data="{{games}}"></game-list>
+            <game-list data="{{games}}" bind:to-game="toGameDetail"></game-list>
           </scroll-view>
         </swiper-item>
         <swiper-item>

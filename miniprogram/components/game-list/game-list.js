@@ -21,5 +21,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
+      onTab(e) {
+          let date = e.currentTarget.dataset.date
+          let gameID = e.currentTarget.dataset.id
+          this.triggerEvent('to-game', {gameID, date})
+      }
   }
 })

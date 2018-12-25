@@ -10,7 +10,8 @@ App({
         }
 
         this.globalData = {
-            season: '2018-19'
+            systemInfo: wx.getSystemInfoSync(), // 获取设备信息
+            season: '2018-19',
         }
 
 

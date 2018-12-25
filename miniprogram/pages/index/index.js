@@ -23,7 +23,7 @@ var app = getApp();
 
 Page({
     data: {
-        currentTab: PLAYER_TAB_INDEX,
+        currentTab: GAME_TAB_INDEX,
         swiperItemHeight: 0,
         games: [],
         currentDate: new Date().format('yyyy-MM-dd'),
@@ -52,7 +52,7 @@ Page({
             this.fetchGames()
         }, GET_GAMES_INTERVAL)
         this.fetchGames()
-        let systemInfo = wx.getSystemInfoSync() // 获取设备信息
+        let systemInfo = app.globalData.systemInfo// 获取设备信息
         let swiperItemHeight = systemInfo.windowHeight - (SWIPER_TOP_HEIGHT * systemInfo.screenWidth / 750) - (SWIPER_TAB_HEIGHT * systemInfo.screenWidth / 750)
         this.setData({'swiperItemHeight': swiperItemHeight})
         this.fetchTeamStandings()
@@ -93,7 +93,8 @@ Page({
                     'NOT_STARTED' : item.period_time.game_status === GAME_STATUS_STARTING ?
                         'STARTING' : item.period_time.game_status === GAME_STATUS_FINAL ?
                             'FINAL' : ''
-
+                tmp.id = item.id
+                tmp.date = item.date
                 if (tmp.game_status === 'NOT_STARTED') {
                     tmp.period_time.period_status = tmp.period_time.period_status.replace('pm', '').replace('ET', '').trim()
                     let arr = tmp.period_time.period_status.split(':')
@@ -125,6 +126,13 @@ Page({
             currentDate: e.detail
         })
         this.fetchGames()
+    },
+    // game detail
+    toGameDetail:function (e) {
+        let {gameID, date} = e.detail
+        wx.navigateTo({
+            url: `/pages/game-detail/game-detail?id=${gameID}&date=${date}`
+        })
     },
     // data
     fetchTeamStandings() {
