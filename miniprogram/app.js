@@ -10,6 +10,9 @@ App({
         }
 
         this.globalData = {
+            GAME_STATUS_NOT_STARTED : '1', // 比赛未开始
+            GAME_STATUS_STARTING : '2', // 比赛进行中
+            GAME_STATUS_FINAL : '3', // 比赛结束
             systemInfo: wx.getSystemInfoSync(), // 获取设备信息
             season: '2018-19',
         }

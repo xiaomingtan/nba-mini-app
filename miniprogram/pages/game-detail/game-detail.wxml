@@ -1,2 +1,42 @@
 <!--miniprogram/pages/game-detail/game-detail.wxml-->
-<text>miniprogram/pages/game-detail/game-detail.wxml</text>
+<view class="game-detail">
+    <view wx:if="{{game}}" class='game-item'
+          style="background-color: {{game.home.color}}"
+    >
+        <view  class='game-left'>
+            <view class="img-wrapper">
+                <image class='team-avatar' mode='widthFix' src='/assets/img/{{game.visitor.team_logo}}'></image>
+            </view>
+            <view>
+                <text class='team-text'>{{game.visitor.cn}}</text>
+            </view>
+        </view>
+        <view class='game-center'>
+            <view class='game-title'>
+                <text class="quarter" wx:if="{{game.game_status === 'STARTING'}}">Q{{game.period_time.period_value}}</text>
+                <text class="time" wx:if="{{game.game_status === 'STARTING'}}">{{game.period_time.game_clock}}</text>
+                <text wx:if="{{game.game_status === 'NOT_STARTED'}}">{{game.period_time.period_status}}</text>
+                <text wx:if="{{game.game_status === 'FINAL'}}">已结束</text>
+            </view>
+            <view class="score-wrapper">
+                <view>
+                    <view class="title">客场</view>
+                    <text class="score">{{game.game_status === 'NOT_STARTED' ? '0' : game.visitor.score}}</text>
+                </view>
+                <view class="division"></view>
+                <view>
+                    <view class="title">主场</view>
+                    <text class="score">{{game.game_status === 'NOT_STARTED' ? '0' : game.home.score}}</text>
+                </view>
+            </view>
+        </view>
+        <view class='game-right'>
+            <view class="img-wrapper">
+                <image class='team-avatar' mode='widthFix' src="/assets/img/{{game.home.team_logo}}"></image>
+            </view>
+            <view>
+                <text class='team-text'>{{game.home.cn}}</text>
+            </view>
+        </view>
+    </view>
+</view>

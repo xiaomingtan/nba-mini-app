@@ -1,11 +1,6 @@
 import {getTodayGames, getLeagueStanding, getPlayers} from '../../api/api.js'
 import teamMap from '../../config/team-map'
 import _ from '../../utils/index'
-
-const GAME_STATUS_NOT_STARTED = '1' // 比赛未开始
-const GAME_STATUS_STARTING = '2' // 比赛进行中
-const GAME_STATUS_FINAL = '3' // 比赛结束
-
 const WEST_8_AREA = -8 // 西八区
 
 const SWIPER_TOP_HEIGHT = 140
@@ -80,6 +75,7 @@ Page({
     // games
     fetchGames: function (refresh) {
         let date = new Date(this.data.currentDate).getLocalTime(WEST_8_AREA).format('yyyy-MM-dd').split('-').join('')
+        date = "20181223"
         let hasNotStartedGame = false
         getTodayGames(date).then(data => {
             console.log(data.sports_content.games.game)
@@ -89,9 +85,9 @@ Page({
                 let homeTeamKey = item.home.team_key.toLowerCase()
                 let visitorTeamKey = item.visitor.team_key.toLowerCase()
                 tmp.period_time = item.period_time
-                tmp.game_status = item.period_time.game_status === GAME_STATUS_NOT_STARTED ?
-                    'NOT_STARTED' : item.period_time.game_status === GAME_STATUS_STARTING ?
-                        'STARTING' : item.period_time.game_status === GAME_STATUS_FINAL ?
+                tmp.game_status = item.period_time.game_status === app.globalData.GAME_STATUS_NOT_STARTED ?
+                    'NOT_STARTED' : item.period_time.game_status === app.globalData.GAME_STATUS_STARTING ?
+                        'STARTING' : item.period_time.game_status === app.globalData.GAME_STATUS_FINAL ?
                             'FINAL' : ''
                 tmp.id = item.id
                 tmp.date = item.date
