@@ -111,6 +111,7 @@
     position: absolute;
     z-index: 10;
     right: 4px;
+    top: 10px;
 }
 
 .place-holder {
