@@ -26,10 +26,6 @@
     border-bottom: 4rpx solid #fff;
 }
 
-swiper {
-    text-align: center;
-}
-
 .swiper-top {
     height: 140rpx;
 }
@@ -95,9 +91,26 @@ swiper {
     width: 100%;
 }
 
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: center;
+    position: relative;
+}
+
 .search-input {
     background-color: #3471AE;
     font-size: 16px;
+    height: 40px;
+    width: 100%;
+    padding-left: 4px;
+}
+
+.search-icon {
+    position: absolute;
+    z-index: 10;
+    right: 4px;
 }
 
 .place-holder {

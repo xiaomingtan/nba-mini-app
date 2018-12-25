@@ -1,2 +1,12 @@
 <!--components/player-list/player-list.wxml-->
-<text>components/player-list/player-list.wxml</text>
+<scroll-view enable-back-to-top="true" scroll-y="true" class="player-list-wrapper" bindscrolltolower="loadMore">
+    <view wx:for="{{players}}" class="player-item"  wx:key="{{index}}">
+        <view class="left">
+            <view class="name">{{item[headerMap['DISPLAY_FIRST_LAST']]}}</view>
+            <view class="team">{{item[headerMap['TEAM_NAME']]}}</view>
+        </view>
+        <view class="right">
+            <view class="icon iconfont icon-previewright"></view>
+        </view>
+    </view>
+</scroll-view>

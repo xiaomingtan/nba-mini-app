@@ -1,1 +1,36 @@
 /* components/player-list/player-list.wxss */
+.player-list-wrapper {
+    height: 100%;
+}
+
+.player-item {
+    padding: 6px 10px;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    align-items: center;
+}
+
+.player-item .left {
+    flex: 1;
+}
+
+.player-item .right {
+    display: flex;
+    align-items: center;
+}
+
+.player-item .name {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.player-item .team {
+    font-size: 12px;
+    color: #cccccc;
+}
+
+
+
+.player-item .icon {
+    color: #ccc;
+}

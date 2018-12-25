@@ -5,7 +5,10 @@
             <text class="game-amount">{{games.length}}场比赛</text>
         </view>
         <view class='player-wrapper' wx:if="{{currentTab == 1}}">
-            <input placeholder="输入球员名字" placeholder-class="place-holder" class="search-input" confirm-type="search" auto-focus />
+            <view class="input-wrapper">
+                <input cursor-spacing="4px" bindinput="onSearch" placeholder="输入球员名字" placeholder-class="place-holder" class="search-input" confirm-type="search" auto-focus />
+                <icon class="search-icon" type="search"></icon>
+            </view>
         </view>
         <view class='area-wrapper' wx:if="{{currentTab == 2}}">
           <picker  range-key='name' range="{{dataTypeRange}}" value="{{dataTypeIndex}}">
@@ -26,7 +29,9 @@
             <game-list data="{{games}}"></game-list>
           </scroll-view>
         </swiper-item>
-        <swiper-item><view>球员</view></swiper-item>
+        <swiper-item>
+            <player-list headerMap="{{playerHeaderMap}}" page="{{playerPage}}" players="{{players}}" bind:next="getMorePlayer"></player-list>
+        </swiper-item>
         <swiper-item>
             <data-list aside="{{teamAside}}" itemHeights="{{standingHeights}}"  standings="{{teamStandings}}" class="data-wrapper"></data-list>
         </swiper-item>

@@ -4,4 +4,27 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-} 
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 983262 */
+    src: url('//at.alicdn.com/t/font_983262_mk5d1mccyid.eot');
+    src: url('//at.alicdn.com/t/font_983262_mk5d1mccyid.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_983262_mk5d1mccyid.woff') format('woff'),
+    url('//at.alicdn.com/t/font_983262_mk5d1mccyid.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_983262_mk5d1mccyid.svg#iconfont') format('svg');
+}
+
+.hide {
+    display: none;
+}
+
+.iconfont {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-previewright:before { content: "\e75c"; }

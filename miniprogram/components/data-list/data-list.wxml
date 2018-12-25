@@ -1,6 +1,6 @@
 <view class="data-list">
     <scroll-view class="data-list-aside">
-        <view wx:for="{{aside}}" class="aside-text {{currentAsideIndex == index ? 'active' : ''}}" bindtap="onChangeStanding" data-index="{{index}}">{{item}}</view>
+        <view wx:for="{{aside}}"  wx:key="{{index}}" class="aside-text {{currentAsideIndex == index ? 'active' : ''}}" bindtap="onChangeStanding" data-index="{{index}}">{{item}}</view>
     </scroll-view>
     <scroll-view v-if="{{standings}}"
                  scroll-y="true"
@@ -16,7 +16,7 @@
                 <view style="width: 40px;">近况</view>
             </view>
             <view class="group-list">
-                <view class="list" wx:for="{{standings.leagueRank}}">
+                <view class="list" wx:for="{{standings.leagueRank}}"  wx:key="{{index}}">
                     <view style="flex: 1;text-align: left;display: flex;align-items: center;">
                         <text style="color: red;margin-right: 4px">{{index + 1}}</text>
                         <image class='team-avatar' style="width: 20px;margin-right: 4px;" mode='widthFix' src='/assets/img/{{item.logo}}'></image>
@@ -36,7 +36,7 @@
                 <view style="width: 40px;">近况</view>
             </view>
             <view class="group-list">
-                <view class="list" wx:for="{{standings.westernRank}}">
+                <view class="list" wx:for="{{standings.westernRank}}"  wx:key="{{index}}">
                     <view style="flex: 1;text-align: left;display: flex;align-items: center;">
                         <text style="color: red;margin-right: 4px">{{index + 1}}</text>
                         <image class='team-avatar' style="width: 20px;margin-right: 4px;" mode='widthFix' src='/assets/img/{{item.logo}}'></image>
@@ -56,7 +56,7 @@
                 <view style="width: 40px;">近况</view>
             </view>
             <view class="group-list">
-                <view class="list" wx:for="{{standings.easternRank}}">
+                <view class="list" wx:for="{{standings.easternRank}}"  wx:key="{{index}}">
                     <view style="flex: 1;text-align: left;display: flex;align-items: center;">
                         <text style="color: red;margin-right: 4px">{{index + 1}}</text>
                         <image class='team-avatar' style="width: 20px;margin-right: 4px;" mode='widthFix' src='/assets/img/{{item.logo}}'></image>
