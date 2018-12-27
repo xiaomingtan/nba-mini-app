@@ -22,9 +22,8 @@ Component({
    */
   methods: {
       onTab(e) {
-          let date = e.currentTarget.dataset.date
-          let gameID = e.currentTarget.dataset.id
-          this.triggerEvent('to-game', {gameID, date})
+          let game = e.currentTarget.dataset.game
+          this.triggerEvent('to-game', {game})
       }
   }
 })

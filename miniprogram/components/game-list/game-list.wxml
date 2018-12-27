@@ -5,8 +5,7 @@
           wx:key="{{index}}"
           style="background-color: {{item.home.color}}"
           bindtap="onTab"
-          data-date="{{item.date}}"
-          data-id="{{item.id}}"
+          data-game="{{item}}"
     >
         <view  class='game-left'>
             <view class="img-wrapper">

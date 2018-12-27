@@ -125,16 +125,16 @@ Page({
     },
     // game detail
     toGameDetail:function (e) {
-        let {gameID, date} = e.detail
+        let gameStr = JSON.stringify(e.detail.game)
         wx.navigateTo({
-            url: `/pages/game-detail/game-detail?id=${gameID}&date=${date}`
+            url: `/pages/game-detail/game-detail?game=${gameStr}`
         })
     },
     // data
     fetchTeamStandings() {
         let year = new Date().getLocalTime(WEST_8_AREA).getFullYear()
         getLeagueStanding(year).then(data => {
-            console.log(this.data.teamStandings)
+            // console.log(this.data.teamStandings)
             let arr = data.sports_content.standings.team
             let tmp = {}
             // 按胜率排序---从高到低
@@ -182,7 +182,7 @@ Page({
     // players
     fetchPlayers() { // 获取所有球员
         getPlayers(app.globalData.season, 0).then(data => {
-            console.log(data.resultSets[0])
+            // console.log(data.resultSets[0])
             let headerMap = {}
             data.resultSets[0].headers.forEach((item, index) => {
                 headerMap[item] = index
