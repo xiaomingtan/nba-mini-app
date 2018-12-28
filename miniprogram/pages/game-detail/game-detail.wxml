@@ -39,4 +39,40 @@
             </view>
         </view>
     </view>
+    <view class="line-score-wrapper">
+        <view class="line-title">
+            <view class="line"></view>
+            <view class="line">{{game.visitor.cn}}</view>
+            <view class="line">{{game.home.cn}}</view>
+        </view>
+        <view class="line-center">
+            <view wx:if="game.home.linescores"
+                  class="line-wrapper"
+                  wx:for="{{game.home.linescores.period}}"
+                  wx:key="{{index}}"
+                  style="width: {{ 100 / game.home.linescores.period.length + '%' }}"
+            >
+                <view class="line">{{item.period_name}}</view>
+                <view class="line">{{game.visitor.linescores.period[index].score}}</view>
+                <view class="line">{{item.score}}</view>
+            </view>
+        </view>
+        <view class="line-title">
+            <view class="line">总分</view>
+            <view class="line">{{game.visitor.score}}</view>
+            <view class="line">{{game.home.score}}</view>
+        </view>
+    </view>
+    <view class="swiper-tab">
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">{{game.visitor.cn}}</view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">{{game.home.cn}}</view>
+    </view>
+    <swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" style="height: {{playerItemHeights}}px">
+        <swiper-item>
+            <player-data data="{{visitorPlayers}}" teamColor="{{game.visitor.color}}"></player-data>
+        </swiper-item>
+        <swiper-item>
+            <player-data data="{{homePlayers}}" teamColor="{{game.home.color}}"></player-data>
+        </swiper-item>
+    </swiper>
 </view>

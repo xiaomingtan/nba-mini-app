@@ -1,14 +1,18 @@
 // miniprogram/pages/game-detail/game-detail.js
 import {getGameDetail} from "../../api/api";
-import teamMap from '../../config/team-map'
 var app = getApp();
+const PLAY_ITEM_HEIGHT = 36
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        game: null
+        game: null,
+        homePlayers: [],
+        visitorPlayers: [],
+        currentTab: 0,
+        playerItemHeights: 0,
     },
 
     /**
@@ -25,13 +29,14 @@ Page({
         getGameDetail(this.data.game.id, this.data.game.date).then(data => {
             let resGame = data.sports_content.game
             let game = this.data.game
-
             game.home.score = resGame.home.score
             game.visitor.score = resGame.visitor.score
-            console.log(game)
             console.log(resGame)
             this.setData({
-                game: game
+                game: game,
+                homePlayers: resGame.home.players.player,
+                visitorPlayers: resGame.visitor.players.player,
+                playerItemHeights: (resGame.visitor.players.player.length + 1) * PLAY_ITEM_HEIGHT
             })
         })
     },
@@ -61,6 +66,23 @@ Page({
      */
     onUnload: function () {
 
+    },
+
+    //滑动切换
+    swiperTab: function (e) {
+        this.setData({
+            currentTab: e.detail.current
+        });
+    },
+    //点击切换
+    clickTab: function (e) {
+        if (this.data.currentTab == e.target.dataset.current) {
+            return false;
+        } else {
+            this.setData({
+                currentTab: e.target.dataset.current
+            })
+        }
     },
 
     /**

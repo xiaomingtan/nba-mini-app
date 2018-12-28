@@ -1,9 +1,8 @@
 /* miniprogram/pages/game-detail/game-detail.wxss */
-.game-detail {
-    text-align: center;
-}
+.game-detail {}
 
 .game-item {
+    text-align: center;
     display: flex;
     align-content: center;
     color: #fff;
@@ -72,4 +71,47 @@
 
 .title {
     font-size: 10px;
+}
+
+.line-score-wrapper {
+    display: flex;
+    background: #f1f1f1;
+    padding: 15rpx;
+    font-size: 13px;
+    text-align: center;
+}
+
+.line-center {
+    display: flex;
+    flex: 1;
+}
+
+.line {
+    height: 40rpx;
+    margin-bottom: 10rpx;
+}
+
+.swiper-tab {
+    background: #fff;
+    width: 100%;
+    border-bottom: 2rpx solid #ccc;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.swiper-tab .swiper-tab-item {
+    width: 50%;
+    color: #000;
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.swiper-tab .active {
+    color: indianred;
+    opacity: 1;
+    border-bottom: 4rpx solid #fff;
 }

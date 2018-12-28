@@ -8,7 +8,7 @@ export default {
         color: '#E03A3E',
         conf: 'eastern',
         logo: 'atl.png',
-        cn: '老鹰队'
+        cn: '老鹰'
     },
     bkn: {
         id: 1610612751,
@@ -17,7 +17,7 @@ export default {
         color: '#000',
         conf: 'eastern',
         logo: 'bkn.png',
-        cn: '篮网队'
+        cn: '篮网'
     },
     bos: {
         id: 1610612738,
@@ -26,7 +26,7 @@ export default {
         color: '#008348',
         conf: 'eastern',
         logo: 'bos.png',
-        cn: '凯尔特人队'
+        cn: '凯尔特人'
     },
     cha: {
         id: 1610612766,
@@ -35,7 +35,7 @@ export default {
         color: '#008CA8',
         conf: 'eastern',
         logo: 'cha.png',
-        cn: '黄蜂队'
+        cn: '黄蜂'
     },
     chi: {
         id: 1610612741,
@@ -44,7 +44,7 @@ export default {
         color: '#CE1141',
         conf: 'eastern',
         logo: 'chi.png',
-        cn: '公牛队'
+        cn: '公牛'
     },
     cle: {
         id: 1610612739,
@@ -53,7 +53,7 @@ export default {
         color: '#860038',
         conf: 'eastern',
         logo: 'cle.png',
-        cn: '骑士队'
+        cn: '骑士'
     },
     dal: {
         id: 1610612742,
@@ -62,7 +62,7 @@ export default {
         color: '#007DC5',
         conf: 'western',
         logo: 'dal.png',
-        cn: '独行侠队'
+        cn: '独行侠'
     },
     den: {
         id: 1610612743,
@@ -71,7 +71,7 @@ export default {
         color: '#FFB20F',
         conf: 'western',
         logo: 'den.png',
-        cn: '掘金队'
+        cn: '掘金'
     },
     det: {
         id: 1610612765,
@@ -80,7 +80,7 @@ export default {
         color: '#006BB6',
         conf: 'eastern',
         logo: 'det.png',
-        cn: '活塞队'
+        cn: '活塞'
     },
     gsw: {
         id: 1610612744,
@@ -89,7 +89,7 @@ export default {
         color: '#FDB927',
         conf: 'western',
         logo: 'gsw.png',
-        cn: '勇士队'
+        cn: '勇士'
     },
     hou: {
         id: 1610612745,
@@ -99,7 +99,7 @@ export default {
         conf: 'western',
         logo: 'hou.png',
         logo2: 'hou2.png',
-        cn: '火箭队'
+        cn: '火箭'
     },
     ind: {
         id: 1610612754,
@@ -108,7 +108,7 @@ export default {
         color: '#FFC633',
         conf: 'eastern',
         logo: 'ind.png',
-        cn: '步行者队'
+        cn: '步行者'
     },
     lac: {
         id: 1610612746,
@@ -117,7 +117,7 @@ export default {
         color: '#222',
         conf: 'western',
         logo: 'lac.png',
-        cn: '快船队'
+        cn: '快船'
     },
     lal: {
         id: 1610612747,
@@ -126,7 +126,7 @@ export default {
         color: '#552582',
         conf: 'western',
         logo: 'lal.png',
-        cn: '湖人队'
+        cn: '湖人'
     },
     mem: {
         id: 1610612763,
@@ -135,7 +135,7 @@ export default {
         color: '#6189B9',
         conf: 'western',
         logo: 'mem.png',
-        cn: '灰熊队'
+        cn: '灰熊'
     },
     mia: {
         id: 1610612748,
@@ -144,7 +144,7 @@ export default {
         color: '#98002E',
         conf: 'eastern',
         logo: 'mia.png',
-        cn: '热火队'
+        cn: '热火'
     },
     mil: {
         id: 1610612749,
@@ -153,7 +153,7 @@ export default {
         color: '#00471B',
         conf: 'eastern',
         logo: 'mil.png',
-        cn: '雄鹿队'
+        cn: '雄鹿'
     },
     min: {
         id: 1610612750,
@@ -162,7 +162,7 @@ export default {
         color: '#005083',
         conf: 'western',
         logo: 'min.png',
-        cn: '森林狼队'
+        cn: '森林狼'
     },
     nop: {
         id: 1610612740,
@@ -171,7 +171,7 @@ export default {
         color: '#002B5C',
         conf: 'western',
         logo: 'nop.png',
-        cn: '鹈鹕队'
+        cn: '鹈鹕'
     },
     nyk: {
         id: 1610612752,
@@ -180,7 +180,7 @@ export default {
         color: '#F58426',
         conf: 'eastern',
         logo: 'nyk.png',
-        cn: '尼克斯队'
+        cn: '尼克斯'
     },
     okc: {
         id: 1610612760,
@@ -189,7 +189,7 @@ export default {
         color: '#F05133',
         conf: 'western',
         logo: 'okc.png',
-        cn: '雷霆队'
+        cn: '雷霆'
     },
     orl: {
         id: 1610612753,
@@ -198,7 +198,7 @@ export default {
         color: '#007DC5',
         conf: 'eastern',
         logo: 'orl.png',
-        cn: '魔术队'
+        cn: '魔术'
     },
     phi: {
         id: 1610612755,
@@ -207,7 +207,7 @@ export default {
         color: '#006BB6',
         conf: 'eastern',
         logo: 'phi.png',
-        cn: '76人队'
+        cn: '76人'
     },
     phx: {
         id: 1610612756,
@@ -216,7 +216,7 @@ export default {
         color: '#E56020',
         conf: 'western',
         logo: 'phx.png',
-        cn: '太阳队'
+        cn: '太阳'
     },
     por: {
         id: 1610612757,
@@ -225,7 +225,7 @@ export default {
         color: '#000',
         conf: 'western',
         logo: 'por.png',
-        cn: '开拓者队'
+        cn: '开拓者'
     },
     sac: {
         id: 1610612758,
@@ -234,7 +234,7 @@ export default {
         color: '#724C9F',
         conf: 'western',
         logo: 'sac.png',
-        cn: '国王队'
+        cn: '国王'
     },
     sas: {
         id: 1610612759,
@@ -243,7 +243,7 @@ export default {
         color: '#B6BFBF',
         conf: 'western',
         logo: 'sas.png',
-        cn: '马刺队'
+        cn: '马刺'
     },
     tor: {
         id: 1610612761,
@@ -252,7 +252,7 @@ export default {
         color: '#CE1141',
         conf: 'eastern',
         logo: 'tor.png',
-        cn: '猛龙队'
+        cn: '猛龙'
     },
     uta: {
         id: 1610612762,
@@ -261,7 +261,7 @@ export default {
         color: '#00471B',
         conf: 'western',
         logo: 'uta.png',
-        cn: '爵士队'
+        cn: '爵士'
     },
     was: {
         id: 1610612764,
@@ -270,6 +270,6 @@ export default {
         color: '#F5002F',
         conf: 'eastern',
         logo: 'was.png',
-        cn: '奇才队'
+        cn: '奇才'
     }
 }

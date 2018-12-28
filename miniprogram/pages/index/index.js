@@ -75,7 +75,7 @@ Page({
     // games
     fetchGames: function (refresh) {
         let date = new Date(this.data.currentDate).getLocalTime(WEST_8_AREA).format('yyyy-MM-dd').split('-').join('')
-        date = "20181223"
+        date = "20181227"
         let hasNotStartedGame = false
         getTodayGames(date).then(data => {
             console.log(data.sports_content.games.game)
@@ -102,12 +102,14 @@ Page({
                     team_logo: teamMap[homeTeamKey].logo,
                     color: teamMap[homeTeamKey].color,
                     cn: teamMap[homeTeamKey].cn,
+                    linescores: item.home.linescores
                 }
                 tmp.visitor = {
                     score: item.visitor.score,
                     team_logo: teamMap[visitorTeamKey].logo,
                     color: teamMap[visitorTeamKey].color,
                     cn: teamMap[visitorTeamKey].cn,
+                    linescores: item.visitor.linescores
                 }
                 newData.push(tmp)
             })
