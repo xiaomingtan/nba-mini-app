@@ -1,23 +1,24 @@
 <!--components/player-data/player-data.wxml-->
 <view>
     <view class="player-data">
-        <view class="data-left" style="border-right: 2rpx solid {{teamColor}}">
+        <view class="data-left" style="border-right: 1px solid {{teamColor}}">
             <view class="title line" style="background-color: {{teamColor}}">球员</view>
             <view class="line" wx:for="{{data}}" wx:key="{{index}}">
-                {{item.last_name}}
+                {{item.name}}
             </view>
         </view>
-        <scroll-view class="data-right" scroll-x>
+        <scroll-view class="data-right" scroll-x >
             <view class="row" style="width: {{headers.length * 50}}px">
                 <view wx:for="{{headers}}" wx:key="{{index}}"
                       class="title line" style="background-color: {{teamColor}}">{{item.label}}
                 </view>
             </view>
             <view class="row" wx:for="{{data}}" wx:key="{{index}}" style="width: {{headers.length * 60}}px">
-                <view class="line"  wx:for="{{headers}}" wx:key="{{index}}"  wx:for-item="header">
+                <view class="line" wx:for="{{headers}}" wx:key="{{index}}" wx:for-item="header">
                     {{item[header.key]}}
                 </view>
             </view>
         </scroll-view>
     </view>
+
 </view>

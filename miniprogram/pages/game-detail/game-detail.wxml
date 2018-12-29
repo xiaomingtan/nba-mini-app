@@ -50,7 +50,7 @@
                   class="line-wrapper"
                   wx:for="{{game.home.linescores.period}}"
                   wx:key="{{index}}"
-                  style="width: {{ 100 / game.home.linescores.period.length + '%' }}"
+                  style="width: {{ 100 / (game.home.linescores.period.length > 4 ? game.home.linescores.period.length : 4) + '%' }}"
             >
                 <view class="line">{{item.period_name}}</view>
                 <view class="line">{{game.visitor.linescores.period[index].score}}</view>

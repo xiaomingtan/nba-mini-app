@@ -22,7 +22,7 @@ const address = {
      * @example gameDate: 20181128 & gameId: 0021500239
      */
     gameDetail: (gameDate, gameId) => {
-        return `http://data.nba.com/data/10s/json/cms/noseason/game/${gameDate}/${gameId}/boxscore.json`
+        return `https://data.nba.com/data/10s/json/cms/noseason/game/${gameDate}/${gameId}/boxscore.json`
     },
 
     /**

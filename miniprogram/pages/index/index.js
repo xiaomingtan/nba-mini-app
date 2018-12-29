@@ -75,7 +75,7 @@ Page({
     // games
     fetchGames: function (refresh) {
         let date = new Date(this.data.currentDate).getLocalTime(WEST_8_AREA).format('yyyy-MM-dd').split('-').join('')
-        date = "20181227"
+        // date = "20181227"
         let hasNotStartedGame = false
         getTodayGames(date).then(data => {
             console.log(data.sports_content.games.game)

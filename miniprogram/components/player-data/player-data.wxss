@@ -16,7 +16,11 @@
 }
 
 .data-left {
-    width: 110px;
+    width: 100px !important;
+}
+
+.data-left .line{
+    width: 100px;
 }
 
 .data-right {
