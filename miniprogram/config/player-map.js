@@ -1,4 +1,4 @@
-export default  {
+export default {
     "brandon_ingram": {
         cn: "英格拉姆",
     },
@@ -49,5 +49,86 @@ export default  {
     },
     "rajon_rondo": {
         cn: '朗多',
+    },
+    "tobias_harris": {
+        cn: "托·哈里斯"
+    },
+    "danilo_gallinari": {
+        cn: "加里纳利"
+    },
+    "boban_marjanovic": {
+        cn: "马里亚诺维奇"
+    },
+    "avery_bradley": {
+        cn: "布拉德利"
+    },
+    "shai_gilgeous-alexander": {
+        cn: "S·亚历山大"
+    },
+    "montrezl_harrell": {
+        cn: "加里纳利"
+    },
+    "patrick_beverley": {
+        cn: "贝弗利"
+    },
+    "lou_williams": {
+        cn: "L·威廉姆斯"
+    },
+    "mike_scott": {
+        cn: "斯科特"
+    },
+    "tyrone_wallace": {
+        cn: "T·华莱士"
+    },
+    "marcin_gortat": {
+        cn: "戈塔特"
+    },
+    "milos_teodosic": {
+        cn: "特奥多西奇"
+    },
+    "sindarius_thornwell": {
+        cn: "桑维尔"
+    },
+    "angel_delgado": {
+        cn: "A·德尔加多"
+    },
+    "luc_mbah a moute": {
+        cn: "巴莫特"
+    },
+    "johnathan_motley": {
+        cn: "J·莫特利"
+    },
+    "jerome_robinson": {
+        cn: "J·罗宾逊"
+    },
+    "mikal_bridges": {
+        cn: ""
+    },
+    "tj_warren": {
+        cn: "TJ·沃伦"
+    },
+    "deandre_ayton": {
+        cn: "艾顿"
+    },
+    "devin_booker": {
+        cn: "布克"
+    },
+    "deanthony_melton": {
+        cn: "梅儿顿"
+    },
+    "josh_jackson": {
+        cn: "J·杰克逊"
+    },
+    "jamal_crawford": {
+        cn: "克劳福德"
+    },
+    "richaun_holmes": {
+        cn: ""
+    },
+    "kelly_oubre jr.": {
+        cn: ""
+    },
+    "dragan_bender": {
+        cn: "本德尔"
     }
 }
