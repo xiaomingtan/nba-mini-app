@@ -48,22 +48,25 @@
         <view class="line-center">
             <view wx:if="game.home.linescores"
                   class="line-wrapper"
-                  wx:for="{{game.home.linescores.period}}"
+                  wx:for="{{homeLineScores}}"
                   wx:key="{{index}}"
-                  style="width: {{ 100 / (game.home.linescores.period.length > 4 ? game.home.linescores.period.length : 4) + '%' }}"
+                  style="width: {{ 100 / (homeLineScores.length > 4 ? homeLineScores.length : 4) + '%' }}"
             >
                 <view class="line">{{item.period_name}}</view>
-                <view class="line">{{game.visitor.linescores.period[index].score}}</view>
+                <view class="line">{{visitorLineScores[index].score}}</view>
                 <view class="line">{{item.score}}</view>
             </view>
         </view>
         <view class="line-title">
             <view class="line">总分</view>
-            <view class="line">{{game.visitor.score}}</view>
-            <view class="line">{{game.home.score}}</view>
+            <view class="line">{{game.visitor.score ? game.visitor.score : "0"}}</view>
+            <view class="line">{{game.home.score ? game.home.score : "0"}}</view>
         </view>
     </view>
-    <view class="swiper-tab">
+    <view class="not-started" wx:if="{{game.game_status === 'NOT_STARTED'}}">
+        未开始
+    </view>
+    <view class="swiper-tab" wx:else>
         <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">{{game.visitor.cn}}</view>
         <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">{{game.home.cn}}</view>
     </view>

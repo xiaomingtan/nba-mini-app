@@ -15,6 +15,7 @@ App({
             GAME_STATUS_FINAL : '3', // 比赛结束
             systemInfo: wx.getSystemInfoSync(), // 获取设备信息
             season: '2018-19',
+            seasonYear: "2018"
         }
 
 

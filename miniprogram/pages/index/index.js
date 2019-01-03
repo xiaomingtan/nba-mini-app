@@ -75,8 +75,9 @@ Page({
     // games
     fetchGames: function (refresh) {
         let date = new Date(this.data.currentDate).getLocalTime(WEST_8_AREA).format('yyyy-MM-dd').split('-').join('')
-        // date = "20181227"
+        // date = "20190103"
         let hasNotStartedGame = false
+        wx.showLoading()
         getTodayGames(date).then(data => {
             console.log(data.sports_content.games.game)
             let newData = []
@@ -116,7 +117,10 @@ Page({
 
             if (!hasNotStartedGame) clearInterval(this.timer)
             if (refresh) wx.stopPullDownRefresh();
+            wx.hideLoading()
             this.setData({'games': newData})
+        }).catch(e => {
+            wx.hideLoading()
         })
     },
     getCurrentDate: function (e) {
@@ -134,7 +138,7 @@ Page({
     },
     // data
     fetchTeamStandings() {
-        let year = new Date().getLocalTime(WEST_8_AREA).getFullYear()
+        let year = app.globalData.seasonYear
         getLeagueStanding(year).then(data => {
             // console.log(this.data.teamStandings)
             let arr = data.sports_content.standings.team
@@ -199,6 +203,10 @@ Page({
                 players: newData.slice(this.data.playerPage * this.data.playerCount, (this.data.playerPage + 1) * this.data.playerCount)
             })
         })
+    },
+    toPlayerDetail:function (e) {
+        let player = e.detail.player
+        console.log(player)
     },
     getMorePlayer(e) {
         let page = e.detail

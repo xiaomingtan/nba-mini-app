@@ -36,6 +36,10 @@ Component({
   methods: {
       loadMore(e) {
           this.triggerEvent('next', this.properties.page + 1)
+      },
+      onTab(e) {
+          let player = e.currentTarget.dataset.player
+          this.triggerEvent('to-player', {player})
       }
   }
 })

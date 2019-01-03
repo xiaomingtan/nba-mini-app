@@ -11,6 +11,18 @@ Page({
         game: null,
         homePlayers: [],
         visitorPlayers: [],
+        homeLineScores: [
+            {period_name: "第一节", score: 0},
+            {period_name: "第二节", score: 0},
+            {period_name: "第三节", score: 0},
+            {period_name: "第四节", score: 0}
+        ],
+        visitorLineScores: [
+            {period_name: "第一节", score: 0},
+            {period_name: "第二节", score: 0},
+            {period_name: "第三节", score: 0},
+            {period_name: "第四节", score: 0}
+        ],
         currentTab: 0,
         playerItemHeights: 0,
     },
@@ -20,34 +32,64 @@ Page({
      */
     onLoad: function (options) {
         let game = JSON.parse(options.game)
-        game.home.linescores.period = this._handleLinescores(game.home.linescores.period)
-        game.visitor.linescores.period = this._handleLinescores(game.visitor.linescores.period)
+        // game.home.linescores.period = this._handleLinescores(game.home.linescores.period)
+        // game.visitor.linescores.period = this._handleLinescores(game.visitor.linescores.period)
         this.setData({
+            homeLineScores: this._handleLinescores(game.home.linescores),
+            visitorLineScores: this._handleLinescores(game.visitor.linescores),
             game: game
         })
         this._fetchGame()
     },
     _fetchGame(refresh) {
+        wx.showLoading()
         getGameDetail(this.data.game.id, this.data.game.date).then(data => {
             let resGame = data.sports_content.game
             let game = this.data.game
             game.home.score = resGame.home.score
-            game.home.linescores.period = this._handleLinescores(game.home.linescores.period)
             game.visitor.score = resGame.visitor.score
-            game.visitor.linescores.period = this._handleLinescores(game.visitor.linescores.period)
             this.setData({
                 game: game,
-                homePlayers: this._handlePlayerData(resGame.home.players.player),
-                visitorPlayers: this._handlePlayerData(resGame.visitor.players.player),
-                playerItemHeights: (resGame.visitor.players.player.length + 2) * PLAY_ITEM_HEIGHT
+                homePlayers:  this._handlePlayerData(resGame.home.players.player, game.game_status),
+                visitorPlayers:this._handlePlayerData(resGame.visitor.players.player, game.game_status),
+                playerItemHeights: game.game_status === "NOT_STARTED"? 0 : (resGame.visitor.players.player.length + 2) * PLAY_ITEM_HEIGHT
             })
+            wx.hideLoading()
             if (refresh) wx.stopPullDownRefresh();
+        }).catch(e => {
+            wx.hideLoading()
         })
     },
     _handleLinescores(linescores) {
-        return linescores instanceof Array ? linescores : [linescores]
+        if (linescores) {
+            if ( linescores.period instanceof Array ) {
+                const len = linescores.period.length
+                if (linescores.period.length < 4) {
+                    for (let i=0; i< len ; i++) {
+                        linescores.period.push({
+                            period_name: `Q${len + i + 1}`,
+                            score: 0
+                        })
+                    }
+                    return linescores.period
+                } else {
+                    return linescores.period
+                }
+            } else {
+                return [linescores.period]
+            }
+        } else {
+            return [
+                {period_name: "Q1", score: 0},
+                {period_name: "Q2", score: 0},
+                {period_name: "Q3", score: 0},
+                {period_name: "Q4", score: 0}
+                ]
+        }
+
     },
-    _handlePlayerData(arr) {
+    _handlePlayerData(arr, status) {
+        if (status === "NOT_STARTED") return []
         let total = {
             name: "总计",
             minutes: 0,
@@ -76,7 +118,7 @@ Page({
             }
             console.log(item.player_code)
             return Object.assign({
-                name: playerMap[item.player_code] ?  playerMap[item.player_code].cn : item.last_name,
+                name: playerMap[item.player_code] ?  playerMap[item.player_code].short : item.last_name,
                 rebounds: parseInt(item.rebounds_defensive) + parseInt(item.rebounds_offensive),
                 field_goals: item.field_goals_made + '-' + item.field_goals_attempted,
                 three_pointers: item.three_pointers_made + '-' + item.three_pointers_attempted,

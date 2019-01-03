@@ -30,7 +30,7 @@
           </scroll-view>
         </swiper-item>
         <swiper-item>
-            <player-list headerMap="{{playerHeaderMap}}" page="{{playerPage}}" players="{{players}}" bind:next="getMorePlayer"></player-list>
+            <player-list bind:to-player="toPlayerDetail" headerMap="{{playerHeaderMap}}" page="{{playerPage}}" players="{{players}}" bind:next="getMorePlayer"></player-list>
         </swiper-item>
         <swiper-item>
             <data-list aside="{{teamAside}}" itemHeights="{{standingHeights}}"  standings="{{teamStandings}}" class="data-wrapper"></data-list>

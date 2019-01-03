@@ -115,3 +115,8 @@
     opacity: 1;
     border-bottom: 4rpx solid #fff;
 }
+
+.not-started {
+    text-align: center;
+    margin-top: 100px;
+}
