@@ -29,7 +29,7 @@ export function getGameDetail(id, date) {
             url: url,
             dataType: 'json',
             success: function(response) {
-                if (response.statusCode === 200 || response.statusCode === 204) {
+                if (response.statusCode >= 200 && response.statusCode < 300) {
                     resolve(response.data)
                 } else {
                     resolve(response.errMsg)
@@ -50,7 +50,7 @@ export function getLeagueStanding(year) {
             url: url,
             dataType: 'json',
             success: function(response) {
-                if (response.statusCode === 200 || response.statusCode === 204) {
+                if (response.statusCode >= 200 && response.statusCode < 300) {
                     resolve(response.data)
                 } else {
                     resolve(response.errMsg)
@@ -71,7 +71,28 @@ export function getPlayers(season, IsOnlyCurrentSeason) {
             url: url,
             dataType: 'json',
             success: function(response) {
-                if (response.statusCode === 200 || response.statusCode === 204) {
+                if (response.statusCode >= 200 && response.statusCode < 300) {
+                    resolve(response.data)
+                } else {
+                    resolve(response.errMsg)
+                }
+            },
+            fail: function(e) {
+                reject(e)
+            }
+        })
+    })
+}
+
+export function getPlayerInfo(id) {
+    const url = address.playerInfo(id)
+    return new Promise((resolve, reject) => {
+        wx.request({
+            method: 'GET',
+            url: url,
+            dataType: 'json',
+            success: function(response) {
+                if (response.statusCode >= 200 && response.statusCode < 300) {
                     resolve(response.data)
                 } else {
                     resolve(response.errMsg)

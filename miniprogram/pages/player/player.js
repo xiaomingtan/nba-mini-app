@@ -44,6 +44,15 @@ Page({
     toPlayerDetail:function (e) {
         let player = e.detail.player
         console.log(player)
+        let playerObj = {
+            id: player[this.data.playerHeaderMap["PERSON_ID"]],
+            player_code: player[this.data.playerHeaderMap["PLAYERCODE"]],
+            team_id: player[this.data.playerHeaderMap["TEAM_ID"]],
+            team_code: player[this.data.playerHeaderMap["TEAM_ABBREVIATION"]] ? player[this.data.playerHeaderMap["TEAM_ABBREVIATION"]].toLowerCase() : ""
+        }
+        wx.navigateTo({
+            url: `/pages/player-detail/player-detail?player=${JSON.stringify(playerObj)}`
+        })
     },
     getMorePlayer(e) {
         let page = e.detail

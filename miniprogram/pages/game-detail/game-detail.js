@@ -32,8 +32,6 @@ Page({
      */
     onLoad: function (options) {
         let game = JSON.parse(options.game)
-        // game.home.linescores.period = this._handleLinescores(game.home.linescores.period)
-        // game.visitor.linescores.period = this._handleLinescores(game.visitor.linescores.period)
         this.setData({
             homeLineScores: this._handleLinescores(game.home.linescores),
             visitorLineScores: this._handleLinescores(game.visitor.linescores),

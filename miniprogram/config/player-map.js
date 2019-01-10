@@ -118,7 +118,8 @@ export default {
         short: "梅尔顿"
     },
     "josh_jackson": {
-        short: "J·杰克逊"
+        short: "J·杰克逊",
+        full: "约什·杰克逊"
     },
     "jamal_crawford": {
         short: "克劳福德"

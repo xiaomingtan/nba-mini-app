@@ -1,2 +1,10 @@
 <!--miniprogram/pages/player-detail/player-detail.wxml-->
-<text>miniprogram/pages/player-detail/player-detail.wxml</text>
+<view class="player-info">
+    <view class="player" wx:if="{{player}}">
+        <view class="player-top" style="background-color: {{player.team.color}} ">
+            <image class='avatar' mode='widthFix' src='{{player.avatar}}'></image>
+            <view class="name">{{player.name}}</view>
+            <view class="jersey">{{player.jersey}}</view>
+        </view>
+    </view>
+</view>

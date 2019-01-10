@@ -1,1 +1,23 @@
 /* miniprogram/pages/player-detail/player-detail.wxss */
+.player-top {
+    padding: 30px 0 10px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.avatar {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 40%;
+}
+
+.name {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.jersey {
+    font-size: 14px;
+}
