@@ -1,9 +1,7 @@
 {
   "usingComponents": {
     "game-list": "/components/game-list/game-list",
-    "date-picker": "/components/date-picker/date-picker",
-    "data-list": "/components/data-list/data-list",
-    "player-list": "/components/player-list/player-list"
+    "date-picker": "/components/date-picker/date-picker"
   },
   "enablePullDownRefresh": true
 }

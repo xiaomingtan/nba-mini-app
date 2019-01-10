@@ -1,0 +1,40 @@
+/* miniprogram/pages/player.wxss */
+.player-top {
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #4d98e4;
+    color: #fff;
+    height: 140rpx;
+    width: 100%;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: center;
+    position: relative;
+}
+
+.search-input {
+    background-color: #3471AE;
+    font-size: 16px;
+    height: 40px;
+    width: 100%;
+    padding-left: 4px;
+}
+
+.search-icon {
+    position: absolute;
+    z-index: 10;
+    right: 4px;
+    top: 10px;
+}
+
+.place-holder {
+    color: #fff;
+    font-size: 14px;
+    text-indent: 4px;
+}

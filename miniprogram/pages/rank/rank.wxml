@@ -1,0 +1,4 @@
+<!--miniprogram/pages/rank.wxml-->
+<view class="rank" style="height: {{swiperItemHeight}}px ;">
+    <data-list aside="{{teamAside}}" itemHeights="{{standingHeights}}"  standings="{{teamStandings}}" class="data-wrapper"></data-list>
+</view>

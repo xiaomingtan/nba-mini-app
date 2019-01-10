@@ -3,7 +3,9 @@
   "pages": [
     "pages/index/index",
     "pages/game-detail/game-detail",
-    "pages/player-detail/player-detail"
+    "pages/player-detail/player-detail",
+    "pages/player/player",
+    "pages/rank/rank"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -11,5 +13,30 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "NBA",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#3471AE",
+    "borderStyle": "#a9b7b7",
+    "list": [
+      {
+        "selectedIconPath": "assets/img/tabbar/game-selected.png",
+        "iconPath": "assets/img/tabbar/game.png",
+        "pagePath": "pages/index/index",
+        "text": "比赛"
+      },
+      {
+        "selectedIconPath": "assets/img/tabbar/player-selected.png",
+        "iconPath": "assets/img/tabbar/player.png",
+        "pagePath": "pages/player/player",
+        "text": "球员"
+      },
+      {
+        "selectedIconPath": "assets/img/tabbar/rank-selected.png",
+        "iconPath": "assets/img/tabbar/rank.png",
+        "pagePath": "pages/rank/rank",
+        "text": "战绩"
+      }
+    ]
   }
 }

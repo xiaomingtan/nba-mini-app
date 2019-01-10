@@ -1,39 +1,13 @@
 <view>
     <view class="swiper-top">
-        <view wx:if="{{currentTab === 0}}" class="date-picker-wrapper">
+        <view class="date-picker-wrapper">
             <date-picker  bind:get-date="getCurrentDate" currentDate="{{currentDate}}"></date-picker>
             <text class="game-amount">{{games.length}}场比赛</text>
         </view>
-        <view class='player-wrapper' wx:if="{{currentTab == 1}}">
-            <view class="input-wrapper">
-                <input cursor-spacing="4px" bindinput="onSearch" placeholder="输入球员名字" placeholder-class="place-holder" class="search-input" confirm-type="done" />
-                <icon class="search-icon" type="search"></icon>
-            </view>
-        </view>
-        <view class='area-wrapper' wx:if="{{currentTab == 2}}">
-          <picker  range-key='name' range="{{dataTypeRange}}" value="{{dataTypeIndex}}">
-              <view class="picker">
-                {{dataTypeRange[dataTypeIndex].name}}
-              </view>
-            </picker>
-        </view>
     </view>
-    <view class="swiper-tab">
-        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">比赛</view>
-        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">球员</view>
-        <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">数据</view>
-    </view>
-    <swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" style="height: {{swiperItemHeight}}px ;">
-        <swiper-item>
-          <scroll-view enable-back-to-top="true" class="game-wrapper" scroll-y="true">
+    <view style="height: {{swiperItemHeight}}px ;">
+        <scroll-view enable-back-to-top="true" class="game-wrapper" scroll-y="true">
             <game-list data="{{games}}" bind:to-game="toGameDetail"></game-list>
-          </scroll-view>
-        </swiper-item>
-        <swiper-item>
-            <player-list bind:to-player="toPlayerDetail" headerMap="{{playerHeaderMap}}" page="{{playerPage}}" players="{{players}}" bind:next="getMorePlayer"></player-list>
-        </swiper-item>
-        <swiper-item>
-            <data-list aside="{{teamAside}}" itemHeights="{{standingHeights}}"  standings="{{teamStandings}}" class="data-wrapper"></data-list>
-        </swiper-item>
-    </swiper>
+        </scroll-view>
+    </view>
 </view>

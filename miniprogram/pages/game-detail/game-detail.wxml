@@ -5,7 +5,7 @@
     >
         <view  class='game-left'>
             <view class="img-wrapper">
-                <image class='team-avatar' mode='widthFix' src='/assets/img/{{game.visitor.team_logo}}'></image>
+                <image class='team-avatar' mode='widthFix' src='/assets/img/team/{{game.visitor.team_logo}}'></image>
             </view>
             <view>
                 <text class='team-text'>{{game.visitor.cn}}</text>
@@ -32,7 +32,7 @@
         </view>
         <view class='game-right'>
             <view class="img-wrapper">
-                <image class='team-avatar' mode='widthFix' src="/assets/img/{{game.home.team_logo}}"></image>
+                <image class='team-avatar' mode='widthFix' src="/assets/img/team/{{game.home.team_logo}}"></image>
             </view>
             <view>
                 <text class='team-text'>{{game.home.cn}}</text>

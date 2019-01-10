@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "data-list": "/components/data-list/data-list"
+  },
+  "enablePullDownRefresh": true
+}
