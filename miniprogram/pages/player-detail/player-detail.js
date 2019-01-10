@@ -11,6 +11,7 @@ Page({
         player: null
     },
     _fetchPlayer(id) {
+        wx.showLoading()
         getPlayerInfo(id).then(data => {
             let playerInfoData = data.resultSets[0]
             let playerStatsData = data.resultSets[1]
@@ -24,6 +25,7 @@ Page({
             })
 
             let row = playerInfoData.rowSet[0]
+            let rowStatus = playerStatsData.rowSet[0]
             let player = {
                 id: row[playerHeaderMap["PERSON_ID"]],
                 name: playerMap[row[playerHeaderMap["PLAYERCODE"]]] ?
@@ -33,7 +35,11 @@ Page({
                 jersey: row[playerHeaderMap["JERSEY"]],
                 avatar: row[playerHeaderMap["TEAM_ID"]] ?
                     `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/${row[playerHeaderMap["TEAM_ID"]]}/${row[playerHeaderMap["TO_YEAR"]]}/260x190/${row[playerHeaderMap["PERSON_ID"]]}.png` :
-                    `https://stats.nba.com/media/players/230x185/${row[playerHeaderMap["PERSON_ID"]]}.png`
+                    `https://stats.nba.com/media/players/230x185/${row[playerHeaderMap["PERSON_ID"]]}.png`,
+                pts: rowStatus[statsHeaderMap["PTS"]],
+                ast: rowStatus[statsHeaderMap["AST"]],
+                reb: rowStatus[statsHeaderMap["REB"]],
+                pie: rowStatus[statsHeaderMap["PIE"]]
             }
 
             this.setData({
@@ -41,7 +47,8 @@ Page({
             })
 
             console.log(player)
-        })
+            wx.hideLoading()
+        }).catch(e =>  wx.hideLoading())
     },
     /**
      * 生命周期函数--监听页面加载
